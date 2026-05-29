@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Produto;
+use Illuminate\Http\Request;
+//
 
 class ProdutoController extends Controller
 {
@@ -19,8 +20,9 @@ class ProdutoController extends Controller
         $dados = $request->validate([
             'nome' => 'required|min:3',
             'preco' => 'required|numeric|min:0',
-            'estoque' => 'required|interger|min:0'
+            'estoque' => 'required|integer|min:0'
         ]);
+
 
         Produto::create($dados);
 

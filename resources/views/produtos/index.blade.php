@@ -8,7 +8,7 @@
 <body>
     <h1>Cadastro de Produtos</h1>
 
-    <form action="/produtos" method="post">
+    <form action="produtos" method="post">
         @csrf 
 
         <label for="nome">Nome</label>
@@ -25,7 +25,7 @@
 
     <h2>Lista de produtos</h2>
 
-    @if($produtos->isEmpy())
+    @if($produtos->isEmpty())
        <p>Nenhum Produto Cadastrado</p>
     @else
        <ul>
