@@ -16,8 +16,14 @@ Route::get('/teste-orm', function () {
     return view('home');
 });
 
+// Rota da listagem e painel administrativo (GET)
+Route::get('/admin', [UserController::class, 'index']);
+
+// Rotas de criação de usuários
+Route::get('/usuarios/novo', [UserController::class, 'create']);
+Route::post('/usuarios', [UserController::class, 'store']);
+
 Route::view('/landing', 'landing');
-Route::view('/admin', 'admin.dashboard');
 
 Route::get('/teste-orm', function (){
     User::create([
