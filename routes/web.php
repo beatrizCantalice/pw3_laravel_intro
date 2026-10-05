@@ -4,13 +4,26 @@ use App\Http\Controllers\ProdutoController;
 use App\Models\User;
 use App\Http\Controllers\LivroController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+
+// Rota para carregar o formulário (GET)
+Route::get('/usuarios/novo', [UserController::class, 'create']);
+
+// Rota para salvar os dados enviados (POST)
+Route::post('/usuarios', [UserController::class, 'store']);
 
 Route::get('/teste-orm', function () {
     return view('home');
 });
 
+// Rota da listagem e painel administrativo (GET)
+Route::get('/admin', [UserController::class, 'index']);
+
+// Rotas de criação de usuários
+Route::get('/usuarios/novo', [UserController::class, 'create']);
+Route::post('/usuarios', [UserController::class, 'store']);
+
 Route::view('/landing', 'landing');
-Route::view('/admin', 'admin.dashboard');
 
 Route::get('/teste-orm', function (){
     User::create([
