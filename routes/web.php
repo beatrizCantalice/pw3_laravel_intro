@@ -6,6 +6,19 @@ use App\Http\Controllers\LivroController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
+Route::get('/admin', [UserController::class, 'index']);
+
+// Rotas de criação
+Route::get('/usuarios/novo', [UserController::class, 'create']);
+Route::post('/usuarios', [UserController::class, 'store']);
+
+// Rotas de edição
+Route::get('/usuarios/{id}/editar', [UserController::class, 'edit']);
+Route::put('/usuarios/{id}', [UserController::class, 'update']);
+
+// Rota de exclusão (DELETE)
+Route::delete('/usuarios/{id}', [UserController::class, 'destroy']);
+
 // Rota para carregar o formulário (GET)
 Route::get('/usuarios/novo', [UserController::class, 'create']);
 
